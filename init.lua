@@ -12,7 +12,7 @@ local function tablefind(tab,el)
 	end
 end
 
-local function register_minion(name, description, texture, node_itemstring, drop_node_itemstring, radius)
+minions.register_minion = function(name, description, texture, node_itemstring, drop_node_itemstring, radius)
   
 	minions[name] = {}
   
