@@ -17,11 +17,9 @@ minions.register_minion = function(name, description, texture, node_itemstring, 
 	minions[name] = {}
   
   
-	minetest.register_node(minetest.get_current_modname()..":" .. name,
-		{
-			description = description,
-			tiles = {texture}, 
-		},
+	minetest.register_node(minetest.get_current_modname()..":" .. name, {
+		description = description,
+		tiles = {texture}, 
     
 		on_place = function(itemstack, placer, pointed_thing)
 			table.insert(minions[name], pointed_thing.above)
@@ -36,7 +34,7 @@ minions.register_minion = function(name, description, texture, node_itemstring, 
 			minetest.get_meta(pos):set_string("formspec", chest_fs)
 			minetest.get_inventory({type = "node", pos = pos}):set_size("tc", 24)
 		end,
-	)
+	})
   
 	local timer = 0
 	minetest.register_globalstep(function(dtime)
